@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unlock IMEI Signal Cepat & Aman | Profesional Berbasis Server</title>
+<meta name="description" content="Layanan unlock IMEI profesional berbasis server. Proses cepat, aman tanpa bongkar perangkat. Support iPhone inter & Android.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f7f4;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --border: #e8e5df;
+  --border2: #d4d0c8;
+  --ink: #1a1916;
+  --ink2: #3d3c38;
+  --muted: #7a7870;
+  --blue: #1a56db;
+  --blue-dark: #1341b0;
+  --blue-light: #eff4ff;
+  --blue-border: #c3d1f9;
+  --green: #0b8a3d;
+  --green-bg: #ecfdf5;
+  --green-border: #a7f3d0;
+  --amber: #b45309;
+  --amber-bg: #fffbeb;
+  --amber-border: #fcd34d;
+  --red: #dc2626;
+  --red-bg: #fef2f2;
+  --red-border: #fca5a5;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ─── TYPOGRAPHY ─── */
+.display { font-family:'DM Sans',sans-serif; font-weight:700; }
+h1,h2,h3,h4 { font-weight:700; line-height:1.15; }
+
+/* ─── NAV ─── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:900;
+  background:rgba(248,247,244,0.92); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  height:64px; padding:0 5%;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.logo {
+  font-family:'DM Sans',sans-serif; font-weight:700; font-size:1.25rem;
+  color:var(--ink); text-decoration:none; letter-spacing:-.3px;
+}
+.logo span { color:var(--blue); }
+.nav-links { display:flex; gap:1.5rem; list-style:none; }
+.nav-links a { color:var(--muted); font-size:.88rem; font-weight:500; text-decoration:none; transition:.15s; }
+.nav-links a:hover { color:var(--ink); }
+.nav-order {
+  background:var(--blue); color:#fff; font-weight:600; font-size:.85rem;
+  padding:.5rem 1.2rem; border-radius:8px; text-decoration:none;
+  transition:.15s; border:none; cursor:pointer;
+}
+.nav-order:hover { background:var(--blue-dark); }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; }
+.hamburger span { display:block; width:20px; height:2px; background:var(--ink); border-radius:2px; }
+
+/* ─── PAGES ─── */
+.page { display:none; }
+.page.active { display:block; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height:100vh; display:flex; align-items:center; justify-content:center;
+  padding:100px 5% 80px; text-align:center; position:relative; overflow:hidden;
+}
+.hero-noise {
+  position:absolute; inset:0; z-index:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 20%, rgba(26,86,219,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(11,138,61,0.04) 0%, transparent 60%);
+}
+.hero-dots {
+  position:absolute; inset:0; z-index:0;
+  background-image: radial-gradient(circle, var(--border2) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
+}
+.hero-inner { position:relative; z-index:1; max-width:720px; }
+.hero-chip {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:var(--blue-light); border:1px solid var(--blue-border);
+  color:var(--blue); font-size:.78rem; font-weight:600; letter-spacing:.04em;
+  padding:.35rem .9rem; border-radius:999px; margin-bottom:1.8rem;
+  animation: riseUp .5s ease both;
+}
+.dot-live { width:7px; height:7px; background:var(--blue); border-radius:50%; animation:pulse 1.8s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+.hero h1 {
+  font-size:clamp(2.4rem,5.5vw,3.8rem); letter-spacing:-.5px; margin-bottom:1.2rem;
+  animation: riseUp .6s .08s ease both;
+}
+.hero h1 .highlight { color:var(--blue); position:relative; }
+.hero h1 .highlight::after {
+  content:''; position:absolute; left:0; bottom:-4px; right:0; height:3px;
+  background:var(--blue); border-radius:2px; opacity:.35;
+}
+.hero-sub {
+  font-size:1.1rem; color:var(--muted); max-width:500px; margin:0 auto 2.2rem;
+  animation: riseUp .6s .15s ease both;
+}
+.hero-cta { animation: riseUp .6s .22s ease both; }
+.btn-blue {
+  background:var(--blue); color:#fff; font-weight:700; font-size:1rem;
+  padding:.9rem 2rem; border-radius:10px; border:none; cursor:pointer;
+  text-decoration:none; display:inline-flex; align-items:center; gap:.5rem;
+  transition:.2s; box-shadow:0 4px 14px rgba(26,86,219,0.3);
+}
+.btn-blue:hover { background:var(--blue-dark); transform:translateY(-2px); box-shadow:0 6px 20px rgba(26,86,219,0.4); }
+.btn-ghost {
+  background:transparent; color:var(--ink2); font-weight:600; font-size:1rem;
+  padding:.9rem 1.6rem; border-radius:10px; border:1px solid var(--border2);
+  cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:.5rem;
+  transition:.2s;
+}
+.btn-ghost:hover { border-color:var(--blue); color:var(--blue); background:var(--blue-light); }
+.hero-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.hero-stats {
+  display:flex; gap:2rem; justify-content:center; flex-wrap:wrap;
+  margin-top:3rem; padding-top:2.5rem; border-top:1px solid var(--border);
+  animation: riseUp .6s .3s ease both;
+}
+.stat { text-align:center; }
+.stat-num { font-size:1.8rem; font-weight:700; color:var(--blue); line-height:1; }
+.stat-label { font-size:.78rem; color:var(--muted); margin-top:.2rem; }
+
+@keyframes riseUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+/* ─── SECTION ─── */
+section { padding:80px 5%; }
+.section-wrap { max-width:1100px; margin:0 auto; }
+.chip {
+  display:inline-block; background:var(--blue-light); color:var(--blue);
+  font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  padding:.3rem .8rem; border-radius:4px; margin-bottom:.8rem;
+}
+.section-title { font-size:clamp(1.7rem,3.5vw,2.4rem); letter-spacing:-.3px; margin-bottom:.6rem; }
+.section-sub { color:var(--muted); font-size:.95rem; }
+
+/* ─── SIAPA KAMI ─── */
+.about-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; margin-top:3rem;
+}
+.about-text p { color:var(--ink2); font-size:.97rem; line-height:1.8; margin-bottom:1rem; }
+.about-highlights { display:flex; flex-direction:column; gap:.7rem; }
+.highlight-row {
+  display:flex; align-items:center; gap:.8rem;
+  background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:.9rem 1.1rem;
+  box-shadow:var(--shadow); transition:.2s;
+}
+.highlight-row:hover { border-color:var(--blue-border); transform:translateX(4px); }
+.hl-icon { font-size:1.4rem; flex-shrink:0; }
+.hl-title { font-weight:700; font-size:.9rem; }
+.hl-desc { font-size:.8rem; color:var(--muted); }
+
+/* ─── CUSTOMER ─── */
+.customer-section { background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.customer-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1rem; margin-top:2.5rem; }
+.customer-card {
+  background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:1.3rem 1.1rem;
+  text-align:center; transition:.2s;
+}
+.customer-card:hover { border-color:var(--blue-border); background:var(--blue-light); }
+.customer-card .icon { font-size:2rem; margin-bottom:.6rem; }
+.customer-card h4 { font-size:.9rem; font-weight:700; color:var(--ink); }
+
+/* ─── WHY US ─── */
+.why-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1rem; margin-top:2.5rem; }
+.why-card {
+  background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:1.5rem;
+  box-shadow:var(--shadow); transition:.2s; position:relative; overflow:hidden;
+}
+.why-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background:var(--blue); transform:scaleX(0); transform-origin:left; transition:.3s;
+}
+.why-card:hover::before { transform:scaleX(1); }
+.why-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+.why-icon { font-size:1.8rem; margin-bottom:.8rem; }
+.why-card h4 { font-weight:700; margin-bottom:.3rem; }
+.why-card p { color:var(--muted); font-size:.83rem; }
+
+/* ─── PRODUK ─── */
+.product-section { background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.product-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.5rem; max-width:720px; margin:2.5rem auto 0; }
+.product-card {
+  background:var(--bg); border:2px solid var(--border); border-radius:18px; padding:2rem;
+  transition:.2s; position:relative;
+}
+.product-card.featured { border-color:var(--blue); background:#fff; box-shadow:0 8px 40px rgba(26,86,219,0.12); }
+.product-badge {
+  position:absolute; top:-12px; left:50%; transform:translateX(-50%);
+  background:var(--blue); color:#fff; font-size:.7rem; font-weight:700;
+  padding:.25rem .9rem; border-radius:999px; white-space:nowrap; letter-spacing:.04em;
+}
+.product-card h3 { font-size:1.3rem; font-weight:700; margin-bottom:.3rem; }
+.product-duration {
+  display:inline-flex; align-items:center; gap:.4rem;
+  background:var(--blue-light); color:var(--blue);
+  font-size:.75rem; font-weight:600; padding:.25rem .7rem; border-radius:6px; margin-bottom:1rem;
+}
+.product-price { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; }
+.product-features { list-style:none; display:flex; flex-direction:column; gap:.5rem; margin-bottom:1.8rem; }
+.product-features li { font-size:.87rem; display:flex; align-items:flex-start; gap:.5rem; }
+.product-features li::before { content:'✓'; color:var(--blue); font-weight:700; flex-shrink:0; }
+.btn-product {
+  width:100%; padding:.85rem; border-radius:10px; font-weight:700; font-size:.95rem;
+  cursor:pointer; transition:.2s; border:none;
+}
+.product-card.featured .btn-product { background:var(--blue); color:#fff; box-shadow:0 4px 14px rgba(26,86,219,0.3); }
+.product-card.featured .btn-product:hover { background:var(--blue-dark); }
+.product-card:not(.featured) .btn-product { background:transparent; color:var(--blue); border:2px solid var(--blue); }
+.product-card:not(.featured) .btn-product:hover { background:var(--blue-light); }
+
+/* ─── CARA ORDER ─── */
+.steps-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:1rem; margin-top:2.5rem; }
+.step-box {
+  background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.3rem 1rem;
+  text-align:center; position:relative; transition:.2s;
+}
+.step-box:hover { border-color:var(--blue-border); box-shadow:var(--shadow); }
+.step-num {
+  width:36px; height:36px; background:var(--blue); color:#fff;
+  border-radius:50%; font-weight:700; font-size:.9rem;
+  display:flex; align-items:center; justify-content:center; margin:0 auto .8rem;
+}
+.step-box h4 { font-size:.85rem; font-weight:700; margin-bottom:.3rem; }
+.step-box p { font-size:.78rem; color:var(--muted); }
+
+/* ─── PEMBAYARAN ─── */
+.payment-methods { display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.5rem; }
+.pay-card {
+  background:var(--surface); border:1px solid var(--border); border-radius:12px;
+  padding:1.2rem 1.5rem; display:flex; align-items:center; gap:.8rem; min-width:180px;
+  box-shadow:var(--shadow);
+}
+.pay-card .pay-icon { font-size:1.6rem; }
+.pay-card h4 { font-weight:700; font-size:.9rem; }
+.pay-card p { font-size:.75rem; color:var(--muted); }
+.pay-note {
+  margin-top:1.2rem; background:var(--amber-bg); border:1px solid var(--amber-border);
+  border-radius:10px; padding:1rem 1.2rem; font-size:.85rem; color:var(--amber);
+  display:flex; align-items:flex-start; gap:.6rem;
+}
+
+/* ─── TESTIMONI ─── */
+.testi-section { background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.testi-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.2rem; margin-top:2.5rem; }
+.testi-card {
+  background:var(--bg); border:1px solid var(--border); border-radius:14px; padding:1.5rem;
+  transition:.2s;
+}
+.testi-card:hover { box-shadow:var(--shadow); border-color:var(--border2); }
+.testi-stars { color:#f59e0b; font-size:.95rem; margin-bottom:.7rem; }
+.testi-quote { font-size:.9rem; color:var(--ink2); line-height:1.7; margin-bottom:1.1rem; font-style:italic; }
+.testi-user { display:flex; align-items:center; gap:.8rem; }
+.testi-ava {
+  width:38px; height:38px; border-radius:50%; background:linear-gradient(135deg,var(--blue),#6366f1);
+  display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:.9rem;
+}
+.testi-name { font-weight:700; font-size:.85rem; }
+.testi-detail { font-size:.75rem; color:var(--muted); }
+.testi-tag {
+  display:inline-block; background:var(--green-bg); color:var(--green);
+  font-size:.7rem; font-weight:600; padding:.15rem .5rem; border-radius:4px; margin-top:.2rem;
+}
+
+/* ─── FAQ ─── */
+.faq-list { max-width:760px; margin:2.5rem auto 0; display:flex; flex-direction:column; gap:.6rem; }
+.faq-item { background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+.faq-q {
+  width:100%; background:transparent; border:none; color:var(--ink);
+  font-family:inherit; font-size:.93rem; font-weight:600;
+  padding:1.1rem 1.3rem; display:flex; justify-content:space-between; align-items:center;
+  cursor:pointer; text-align:left; gap:1rem; transition:.15s;
+}
+.faq-q:hover { color:var(--blue); }
+.faq-arrow { color:var(--muted); font-size:.75rem; flex-shrink:0; transition:.3s; }
+.faq-item.open .faq-arrow { transform:rotate(180deg); color:var(--blue); }
+.faq-a {
+  max-height:0; overflow:hidden; transition:.3s ease;
+  padding:0 1.3rem; color:var(--ink2); font-size:.88rem; line-height:1.75;
+}
+.faq-item.open .faq-a { max-height:300px; padding:.2rem 1.3rem 1.2rem; }
+.faq-badge { display:inline-block; background:var(--blue-light); color:var(--blue); font-size:.7rem; font-weight:700; padding:.15rem .5rem; border-radius:4px; margin-left:.4rem; vertical-align:middle; }
+
+/* ─── CTA BOTTOM ─── */
+.cta-bottom {
+  background:var(--blue); color:#fff; text-align:center; padding:80px 5%;
+  position:relative; overflow:hidden;
+}
+.cta-bottom::before {
+  content:''; position:absolute; inset:0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size:24px 24px;
+}
+.cta-bottom h2 { font-size:clamp(1.8rem,4vw,3rem); margin-bottom:.8rem; position:relative; }
+.cta-bottom p { opacity:.8; margin-bottom:2rem; font-size:1rem; position:relative; }
+.btn-white {
+  background:#fff; color:var(--blue); font-weight:700; font-size:1rem;
+  padding:.9rem 2rem; border-radius:10px; border:none; cursor:pointer;
+  display:inline-flex; align-items:center; gap:.5rem; transition:.2s;
+  box-shadow:0 4px 14px rgba(0,0,0,0.15); position:relative;
+}
+.btn-white:hover { transform:translateY(-2px); box-shadow:0 6px 24px rgba(0,0,0,0.2); }
+
+/* ─── FOOTER ─── */
+footer {
+  background:var(--ink); color:rgba(255,255,255,0.7);
+  padding:2.5rem 5%; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
+}
+footer .logo { color:#fff; font-size:1.1rem; }
+footer .logo span { color:var(--blue-light); }
+footer p { font-size:.8rem; }
+
+/* ─── MODAL / OVERLAY ─── */
+.overlay {
+  display:none; position:fixed; inset:0; z-index:1000;
+  background:rgba(20,20,20,0.5); backdrop-filter:blur(4px);
+  align-items:center; justify-content:center; padding:1rem;
+}
+.overlay.active { display:flex; }
+.modal {
+  background:var(--surface); border-radius:20px; max-width:540px; width:100%;
+  max-height:92vh; overflow-y:auto; padding:2rem;
+  box-shadow:var(--shadow-lg); position:relative; animation:modalIn .3s ease;
+  border:1px solid var(--border);
+}
+@keyframes modalIn { from{opacity:0;transform:scale(.96)translateY(16px)} to{opacity:1;transform:scale(1)translateY(0)} }
+.modal-close {
+  position:absolute; top:1rem; right:1rem;
+  width:32px; height:32px; border-radius:50%;
+  background:var(--bg); border:1px solid var(--border);
+  color:var(--muted); font-size:1rem; cursor:pointer; display:flex;
+  align-items:center; justify-content:center; transition:.15s;
+}
+.modal-close:hover { color:var(--ink); }
+.modal-chip { font-size:.7rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--blue); margin-bottom:.5rem; }
+.modal h2 { font-size:1.5rem; margin-bottom:.3rem; }
+.modal p.sub { font-size:.85rem; color:var(--muted); margin-bottom:1.5rem; }
+
+/* Plan selector inside modal */
+.plan-selector { display:flex; gap:.7rem; margin-bottom:1.5rem; }
+.plan-opt {
+  flex:1; border:2px solid var(--border); border-radius:10px; padding:1rem;
+  cursor:pointer; transition:.2s; text-align:center; background:var(--bg);
+}
+.plan-opt.selected { border-color:var(--blue); background:var(--blue-light); }
+.plan-opt h4 { font-size:.9rem; font-weight:700; }
+.plan-opt .plan-price { font-size:1.1rem; font-weight:700; color:var(--blue); }
+.plan-opt .plan-dur { font-size:.75rem; color:var(--muted); }
+.plan-selected-bar {
+  background:var(--blue-light); border:1px solid var(--blue-border);
+  border-radius:8px; padding:.7rem 1rem; margin-bottom:1.2rem;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.plan-selected-bar span:first-child { font-size:.85rem; font-weight:600; }
+.plan-selected-bar .price { font-weight:700; color:var(--blue); font-size:1rem; }
+
+/* Form fields */
+.fgroup { margin-bottom:1rem; }
+.fgroup label { display:block; font-size:.82rem; font-weight:600; margin-bottom:.35rem; color:var(--ink2); }
+.fgroup input, .fgroup select, .fgroup textarea {
+  width:100%; background:var(--bg); border:1.5px solid var(--border); border-radius:8px;
+  color:var(--ink); font-size:.9rem; padding:.72rem .9rem; outline:none; font-family:inherit;
+  transition:.2s; appearance:none;
+}
+.fgroup input:focus, .fgroup select:focus, .fgroup textarea:focus { border-color:var(--blue); background:#fff; }
+.fgroup textarea { resize:vertical; min-height:70px; }
+.fgroup .hint { font-size:.75rem; color:var(--muted); margin-top:.3rem; }
+.fgroup .imei-code { font-family:monospace; letter-spacing:.05em; }
+.upload-zone {
+  border:2px dashed var(--border2); border-radius:10px; padding:1.5rem;
+  text-align:center; cursor:pointer; transition:.2s; background:var(--bg);
+}
+.upload-zone:hover { border-color:var(--blue); background:var(--blue-light); }
+.upload-zone.has-file { border-color:var(--green); background:var(--green-bg); }
+.upload-zone input[type=file] { display:none; }
+.upload-icon { font-size:1.8rem; margin-bottom:.4rem; }
+.upload-zone p { font-size:.82rem; color:var(--muted); }
+.upload-zone.has-file p { color:var(--green); font-weight:600; }
+.divider { border:none; border-top:1px solid var(--border); margin:1.2rem 0; }
+.section-divider { font-size:.75rem; font-weight:700; letter-spacing:.06em; color:var(--muted); text-transform:uppercase; margin-bottom:.8rem; }
+.btn-submit {
+  width:100%; background:var(--blue); color:#fff; font-weight:700; font-size:1rem;
+  padding:.9rem; border-radius:10px; border:none; cursor:pointer; transition:.2s;
+  display:flex; align-items:center; justify-content:center; gap:.5rem; margin-top:1rem;
+}
+.btn-submit:hover { background:var(--blue-dark); }
+.btn-submit:disabled { opacity:.6; cursor:not-allowed; }
+.form-note { font-size:.75rem; color:var(--muted); text-align:center; margin-top:.7rem; }
+
+/* ─── STATUS PAGE ─── */
+#statusPage { display:none; padding:80px 5%; min-height:100vh; }
+#statusPage.active { display:block; }
+.status-wrap { max-width:560px; margin:0 auto; }
+.status-badge {
+  display:inline-flex; align-items:center; gap:.5rem;
+  border-radius:999px; font-size:.82rem; font-weight:700; padding:.4rem 1rem; margin-bottom:1.5rem;
+}
+.status-badge.waiting { background:var(--amber-bg); color:var(--amber); border:1px solid var(--amber-border); }
+.status-badge.success { background:var(--green-bg); color:var(--green); border:1px solid var(--green-border); }
+.status-badge.processing { background:var(--blue-light); color:var(--blue); border:1px solid var(--blue-border); }
+.status-card {
+  background:var(--surface); border:1px solid var(--border); border-radius:16px;
+  box-shadow:var(--shadow-lg); overflow:hidden; margin-bottom:1.5rem;
+}
+.status-header {
+  background:var(--blue); color:#fff; padding:1.5rem;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.status-header h3 { font-size:.85rem; opacity:.8; margin-bottom:.2rem; }
+.status-header .order-id { font-size:1.3rem; font-weight:700; font-family:monospace; }
+.status-body { padding:1.5rem; }
+.info-row { display:flex; justify-content:space-between; align-items:center; padding:.5rem 0; border-bottom:1px solid var(--border); }
+.info-row:last-child { border-bottom:none; }
+.info-label { font-size:.82rem; color:var(--muted); }
+.info-val { font-size:.9rem; font-weight:600; }
+.status-pill {
+  background:var(--amber-bg); color:var(--amber); border:1px solid var(--amber-border);
+  font-size:.78rem; font-weight:700; padding:.3rem .8rem; border-radius:999px;
+}
+.payment-box {
+  background:var(--blue-light); border:1px solid var(--blue-border);
+  border-radius:12px; padding:1.5rem; margin-bottom:1.5rem;
+}
+.payment-box h4 { font-weight:700; margin-bottom:1rem; color:var(--blue); }
+.payment-option {
+  background:#fff; border:1.5px solid var(--border); border-radius:10px;
+  padding:1rem; margin-bottom:.7rem; cursor:pointer; transition:.2s;
+  display:flex; align-items:center; gap:.8rem;
+}
+.payment-option:hover { border-color:var(--blue); }
+.payment-option.selected { border-color:var(--blue); background:var(--blue-light); }
+.payment-option .pay-name { font-weight:600; font-size:.9rem; }
+.payment-option .pay-num { font-size:.8rem; color:var(--muted); font-family:monospace; }
+.payment-option .pay-emoji { font-size:1.5rem; }
+.payment-option { position:relative; }
+.pay-copy-btn {
+  margin-left:auto; flex-shrink:0;
+  background:var(--blue-light); border:1.5px solid var(--blue-border);
+  color:var(--blue); font-size:.72rem; font-weight:700; letter-spacing:.04em;
+  padding:.3rem .8rem; border-radius:6px; cursor:pointer; transition:.2s;
+  display:none; align-items:center; gap:.3rem; white-space:nowrap;
+}
+.pay-copy-btn:hover { background:var(--blue); color:#fff; border-color:var(--blue); }
+.pay-copy-btn.copied { background:var(--green-bg); border-color:var(--green-border); color:var(--green); }
+.payment-option.selected .pay-copy-btn { display:inline-flex; }
+.selected-rekening-box {
+  display:none; background:#fff; border:2px solid var(--blue); border-radius:12px;
+  padding:1rem 1.2rem; margin-bottom:1rem;
+  animation:fadeIn .25s ease;
+}
+.selected-rekening-box.show { display:block; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
+.rek-box-label { font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--blue); margin-bottom:.5rem; }
+.rek-box-row { display:flex; align-items:center; justify-content:space-between; gap:.8rem; }
+.rek-box-num { font-family:monospace; font-size:1.3rem; font-weight:700; color:var(--ink); letter-spacing:.06em; }
+.rek-box-an { font-size:.8rem; color:var(--muted); margin-top:.15rem; }
+.btn-copy-big {
+  background:var(--blue); color:#fff; font-weight:700; font-size:.82rem;
+  padding:.55rem 1.2rem; border-radius:8px; border:none; cursor:pointer;
+  display:flex; align-items:center; gap:.4rem; transition:.2s; flex-shrink:0;
+  white-space:nowrap;
+}
+.btn-copy-big:hover { background:var(--blue-dark); }
+.btn-copy-big.copied { background:var(--green); }
+.rek-box-nominal { margin-top:.6rem; font-size:.82rem; color:var(--muted); }
+.rek-box-nominal strong { color:var(--blue); font-family:monospace; }
+.amount-due {
+  text-align:center; background:#fff; border:1px solid var(--blue-border);
+  border-radius:10px; padding:1rem; margin:1rem 0;
+}
+.amount-due .label { font-size:.8rem; color:var(--muted); }
+.amount-due .amount { font-size:2rem; font-weight:700; color:var(--blue); font-family:monospace; }
+.btn-paid {
+  width:100%; background:var(--green); color:#fff; font-weight:700; font-size:.95rem;
+  padding:.85rem; border-radius:10px; border:none; cursor:pointer; transition:.2s;
+  display:flex; align-items:center; justify-content:center; gap:.5rem;
+}
+.btn-paid:hover { opacity:.9; }
+.btn-back { background:none; border:none; color:var(--blue); font-size:.85rem; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:.3rem; margin-bottom:1.5rem; }
+
+/* ─── KONFIRMASI BAYAR ─── */
+#confirmPage { display:none; padding:80px 5%; min-height:100vh; }
+#confirmPage.active { display:block; }
+.confirm-wrap { max-width:480px; margin:0 auto; }
+.confirm-card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:2rem; box-shadow:var(--shadow-lg); }
+.confirm-steps { display:flex; flex-direction:column; gap:.5rem; margin-bottom:1.5rem; }
+.confirm-step { display:flex; align-items:center; gap:.7rem; font-size:.85rem; color:var(--muted); }
+.confirm-step.done { color:var(--green); }
+.confirm-step .cs-dot { width:20px; height:20px; border-radius:50%; border:2px solid currentColor; display:flex; align-items:center; justify-content:center; font-size:.6rem; flex-shrink:0; }
+.btn-confirm {
+  width:100%; background:var(--green); color:#fff; font-weight:700; font-size:1rem;
+  padding:.9rem; border-radius:10px; border:none; cursor:pointer; transition:.2s; margin-top:1rem;
+}
+.btn-confirm:hover { opacity:.9; }
+.done-box {
+  background:var(--green-bg); border:1px solid var(--green-border);
+  border-radius:12px; padding:2rem; text-align:center; margin-top:1.5rem;
+}
+.done-icon { font-size:3rem; margin-bottom:.8rem; }
+.done-box h3 { font-size:1.2rem; margin-bottom:.4rem; color:var(--green); }
+.done-box p { font-size:.88rem; color:var(--muted); }
+
+/* ─── MOBILE ─── */
+@media(max-width:768px){
+  .nav-links { display:none; }
+  .hamburger { display:flex; }
+  nav.open .nav-links {
+    display:flex; flex-direction:column; position:fixed; top:64px; left:0; right:0;
+    background:var(--bg); border-bottom:1px solid var(--border);
+    padding:1.2rem 5%; gap:.8rem; z-index:899;
+  }
+  .nav-links a { font-size:.95rem; }
+  .about-grid { grid-template-columns:1fr; gap:2rem; }
+  .steps-row { grid-template-columns:repeat(2,1fr); }
+  footer { flex-direction:column; text-align:center; }
+  .hero-stats { gap:1.5rem; }
+}
+@media(max-width:500px){
+  .plan-selector { flex-direction:column; }
+  .steps-row { grid-template-columns:1fr; }
+}
+
+/* ─── SCROLL REVEAL ─── */
+.reveal { opacity:0; transform:translateY(18px); transition:opacity .5s ease, transform .5s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="logo" onclick="goHome()">Sinyal<span>Sakti</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#tentang" onclick="closeNav()">Tentang</a></li>
+    <li><a href="#produk" onclick="closeNav()">Produk</a></li>
+    <li><a href="#cara" onclick="closeNav()">Cara Order</a></li>
+    <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
+  </ul>
+  <button class="nav-order" onclick="openOrderModal()">⚡ Order Sekarang</button>
+  <button class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════════════════ LANDING PAGE ══════════════════════ -->
+<div id="landingPage" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-noise"></div>
+    <div class="hero-dots"></div>
+    <div class="hero-inner">
+      <div class="hero-chip">
+        <span class="dot-live"></span>
+        Server Online · Proses Aktif
+      </div>
+      <h1>Unlock IMEI Signal<br><span class="highlight">Cepat & Aman</span></h1>
+      <p class="hero-sub">Layanan unlock IMEI profesional berbasis server. Proses cepat tanpa ribet, tanpa bongkar perangkat.</p>
+      <div class="hero-cta">
+        <div class="hero-btns">
+          <button class="btn-blue" onclick="openOrderModal()">⚡ Order Sekarang</button>
+          <a href="#cara" class="btn-ghost">📋 Lihat Cara Order</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Perangkat Berhasil</div></div>
+        <div class="stat"><div class="stat-num">10–30'</div><div class="stat-label">Rata-rata Proses</div></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Refund Jika Gagal</div></div>
+        <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Support Aktif</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIAPA KAMI -->
+  <section id="tentang">
+    <div class="section-wrap">
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="chip">Tentang Kami</div>
+          <h2 class="section-title">Layanan Unlock IMEI <span style="color:var(--blue)">Profesional</span></h2>
+          <p>Kami adalah layanan unlock IMEI profesional yang membantu mengaktifkan kembali sinyal pada perangkat yang terblokir akibat masalah registrasi IMEI.</p>
+          <p>Fokus kami adalah <strong>kecepatan, keamanan, dan kemudahan proses</strong> — semua dilakukan jarak jauh, tanpa perlu kirim HP.</p>
+          <p>Dengan sistem berbasis server yang terus diperbarui, kami mampu memproses mayoritas iPhone inter dan beberapa Android dalam waktu singkat.</p>
+        </div>
+        <div class="about-highlights reveal">
+          <div class="highlight-row">
+            <span class="hl-icon">🏆</span>
+            <div><div class="hl-title">Terpercaya & Berpengalaman</div><div class="hl-desc">Ratusan perangkat berhasil diaktifkan dari seluruh Indonesia</div></div>
+          </div>
+          <div class="highlight-row">
+            <span class="hl-icon">⚡</span>
+            <div><div class="hl-title">Proses Cepat Berbasis Server</div><div class="hl-desc">Rata-rata selesai dalam 10–30 menit setelah pembayaran</div></div>
+          </div>
+          <div class="highlight-row">
+            <span class="hl-icon">🔒</span>
+            <div><div class="hl-title">Aman & Tanpa Risiko Hardware</div><div class="hl-desc">Tidak meminta Apple ID, password, atau akses iCloud</div></div>
+          </div>
+          <div class="highlight-row">
+            <span class="hl-icon">💰</span>
+            <div><div class="hl-title">Garansi Refund 100%</div><div class="hl-desc">Gagal diproses? Dana kembali penuh, tanpa potongan</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIAPA CUSTOMER -->
+  <section class="customer-section">
+    <div class="section-wrap">
+      <div class="chip">Target Customer</div>
+      <h2 class="section-title">Layanan Ini Cocok untuk <span style="color:var(--blue)">Siapa?</span></h2>
+      <p class="section-sub">Kami melayani berbagai jenis customer dengan kebutuhan unlock IMEI yang berbeda.</p>
+      <div class="customer-grid reveal">
+        <div class="customer-card"><div class="icon">📱</div><h4>Pengguna iPhone Ex-Inter / Luar Negeri</h4></div>
+        <div class="customer-card"><div class="icon">📶</div><h4>HP Tidak Bisa Sinyal / No Service</h4></div>
+        <div class="customer-card"><div class="icon">🚫</div><h4>IMEI Terblokir Kemenperin</h4></div>
+        <div class="customer-card"><div class="icon">🏪</div><h4>Penjual & Reseller HP</h4></div>
+        <div class="customer-card"><div class="icon">💡</div><h4>Siapa Saja yang Butuh Solusi Cepat</h4></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KENAPA KAMI -->
+  <section id="keunggulan">
+    <div class="section-wrap">
+      <div style="text-align:center;margin-bottom:2rem">
+        <div class="chip">Keunggulan</div>
+        <h2 class="section-title">Kenapa Harus <span style="color:var(--blue)">Pilih Kami?</span></h2>
+        <p class="section-sub">Kami bukan sekadar jasa biasa — ini yang membedakan kami.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon">⚡</div>
+          <h4>Proses Cepat</h4>
+          <p>Rata-rata selesai 10–30 menit. Tidak perlu menunggu berhari-hari seperti jalur resmi.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">🔒</div>
+          <h4>Aman Tanpa Bongkar</h4>
+          <p>Semua proses dilakukan via software & server. Hardware perangkat sama sekali tidak tersentuh.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">🖥️</div>
+          <h4>Sistem Berbasis Server</h4>
+          <p>Infrastruktur server yang stabil dan terus diperbarui untuk hasil terbaik.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">💬</div>
+          <h4>Support Fast Response</h4>
+          <p>Admin aktif setiap hari. Chat dibalas cepat — tidak dibiarkan pending tanpa kabar.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">💰</div>
+          <h4>Harga Kompetitif</h4>
+          <p>Tarif terjangkau dengan kualitas premium. Transparan, tidak ada biaya tersembunyi.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">🔄</div>
+          <h4>Mudah Diperpanjang</h4>
+          <p>Masa aktif habis? Perpanjang semudah order pertama. Tidak perlu proses ulang yang rumit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUK -->
+  <section class="product-section" id="produk">
+    <div class="section-wrap">
+      <div style="text-align:center;margin-bottom:2rem">
+        <div class="chip">Paket Layanan</div>
+        <h2 class="section-title">Pilih <span style="color:var(--blue)">Paket Unlock</span></h2>
+        <p class="section-sub">Dua pilihan paket sesuai kebutuhan. Gagal diproses? Dana kembali 100%.</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card reveal">
+          <h3>Unlock 1 Bulan</h3>
+          <div class="product-duration">📅 Aktif 30 Hari</div>
+          <p class="product-price">Cocok untuk pemakaian sementara atau coba dulu</p>
+          <ul class="product-features">
+            <li>Aktivasi sinyal iPhone / Android</li>
+            <li>Masa aktif 30 hari penuh</li>
+            <li>Proses 10–30 menit</li>
+            <li>Aman update iOS & restart</li>
+            <li>Bebas ganti SIM card</li>
+            <li>Gagal = refund 100%</li>
+          </ul>
+          <button class="btn-product" onclick="openOrderModal('1bulan')">Order Paket 1 Bulan</button>
+        </div>
+        <div class="product-card featured reveal">
+          <div class="product-badge">⭐ LEBIH HEMAT</div>
+          <h3>Unlock 3 Bulan</h3>
+          <div class="product-duration">📅 Aktif 90 Hari</div>
+          <p class="product-price">Hemat lebih banyak, tenang lebih lama</p>
+          <ul class="product-features">
+            <li>Aktivasi sinyal iPhone / Android</li>
+            <li>Masa aktif 90 hari penuh</li>
+            <li>Proses 10–30 menit</li>
+            <li>Aman update iOS & restart</li>
+            <li>Bebas ganti SIM card</li>
+            <li>Gagal = refund 100%</li>
+          </ul>
+          <button class="btn-product" onclick="openOrderModal('3bulan')">Order Paket 3 Bulan</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARA ORDER -->
+  <section id="cara">
+    <div class="section-wrap">
+      <div style="text-align:center;margin-bottom:2rem">
+        <div class="chip">Cara Kerja</div>
+        <h2 class="section-title">Cara <span style="color:var(--blue)">Order</span></h2>
+        <p class="section-sub">7 langkah mudah dari pilih paket hingga sinyal aktif kembali.</p>
+      </div>
+      <div class="steps-row">
+        <div class="step-box reveal"><div class="step-num">1</div><h4>Pilih Paket</h4><p>Pilih paket 1 bulan atau 3 bulan sesuai kebutuhan</p></div>
+        <div class="step-box reveal"><div class="step-num">2</div><h4>Isi Data</h4><p>Lengkapi form dengan nama, WhatsApp, dan IMEI</p></div>
+        <div class="step-box reveal"><div class="step-num">3</div><h4>Upload Screenshot IMEI</h4><p>Foto / screenshot layar IMEI (*#06#) dan upload</p></div>
+        <div class="step-box reveal"><div class="step-num">4</div><h4>Lakukan Pembayaran</h4><p>Transfer via E-Wallet, atau rekening bank</p></div>
+        <div class="step-box reveal"><div class="step-num">5</div><h4>Klik "Sudah Bayar"</h4><p>Konfirmasi bahwa pembayaran sudah dilakukan</p></div>
+        <div class="step-box reveal"><div class="step-num">6</div><h4>Upload Bukti Transfer</h4><p>Upload screenshot bukti pembayaran kamu</p></div>
+        <div class="step-box reveal"><div class="step-num">7</div><h4>Tunggu Selesai</h4><p>Admin proses. 10–30 menit sinyal aktif kembali!</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PEMBAYARAN -->
+  <section style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)" id="bayar">
+    <div class="section-wrap">
+      <div class="chip">Metode Pembayaran</div>
+      <h2 class="section-title">Cara <span style="color:var(--blue)">Pembayaran</span></h2>
+      <p class="section-sub">Kami mendukung berbagai metode pembayaran yang mudah dan aman.</p>
+      <div class="payment-methods reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.8rem;margin-top:1.5rem">
+        <div class="pay-card" style="flex-direction:column;align-items:center;text-align:center;padding:1rem .8rem;gap:.5rem">
+          <div style="width:52px;height:52px;border-radius:12px;background:#00529B;display:flex;align-items:center;justify-content:center">
+            <svg width="32" height="20" viewBox="0 0 120 40" fill="none"><text x="4" y="30" font-size="28" font-weight="900" fill="white" font-family="Arial">BRI</text></svg>
+          </div>
+          <div><h4 style="font-size:.82rem">BRI</h4><p style="font-size:.7rem">Transfer Bank</p></div>
+        </div>
+        <div class="pay-card" style="flex-direction:column;align-items:center;text-align:center;padding:1rem .8rem;gap:.5rem">
+          <div style="width:52px;height:52px;border-radius:12px;background:#003087;display:flex;align-items:center;justify-content:center">
+            <svg width="36" height="20" viewBox="0 0 120 40" fill="none"><text x="2" y="30" font-size="26" font-weight="900" fill="white" font-family="Arial">BCA</text></svg>
+          </div>
+          <div><h4 style="font-size:.82rem">BCA</h4><p style="font-size:.7rem">Transfer Bank</p></div>
+        </div>
+        <div class="pay-card" style="flex-direction:column;align-items:center;text-align:center;padding:1rem .8rem;gap:.5rem">
+          <div style="width:52px;height:52px;border-radius:12px;background:#003F2D;display:flex;align-items:center;justify-content:center">
+            <svg width="40" height="20" viewBox="0 0 140 40" fill="none"><text x="2" y="30" font-size="22" font-weight="900" fill="white" font-family="Arial">MDR</text></svg>
+          </div>
+          <div><h4 style="font-size:.82rem">Mandiri</h4><p style="font-size:.7rem">Transfer Bank</p></div>
+        </div>
+        <div class="pay-card" style="flex-direction:column;align-items:center;text-align:center;padding:1rem .8rem;gap:.5rem">
+          <div style="width:52px;height:52px;border-radius:12px;background:#0A5EB0;display:flex;align-items:center;justify-content:center">
+            <svg width="36" height="20" viewBox="0 0 120 40" fill="none"><text x="4" y="30" font-size="26" font-weight="900" fill="white" font-family="Arial">Jago</text></svg>
+          </div>
+          <div><h4 style="font-size:.82rem">Jago</h4><p style="font-size:.7rem">Bank Digital</p></div>
+        </div>
+        <div class="pay-card" style="flex-direction:column;align-items:center;text-align:center;padding:1rem .8rem;gap:.5rem">
+          <div style="width:52px;height:52px;border-radius:12px;background:#108FE9;display:flex;align-items:center;justify-content:center">
+            <svg width="40" height="24" viewBox="0 0 130 40"><text x="2" y="30" font-size="24" font-weight="900" fill="white" font-family="Arial">DANA</text></svg>
+          </div>
+          <div><h4 style="font-size:.82rem">DANA</h4><p style="font-size:.7rem">E-Wallet</p></div>
+        </div>
+        <div class="pay-card" style="flex-direction:column;align-items:center;text-align:center;padding:1rem .8rem;gap:.5rem">
+          <div style="width:52px;height:52px;border-radius:12px;background:#EE4D2D;display:flex;align-items:center;justify-content:center">
+            <svg width="40" height="24" viewBox="0 0 140 40"><text x="2" y="30" font-size="18" font-weight="900" fill="white" font-family="Arial">SPay</text></svg>
+          </div>
+          <div><h4 style="font-size:.82rem">ShopeePay</h4><p style="font-size:.7rem">E-Wallet</p></div>
+        </div>
+      </div>
+      <div class="pay-note" style="margin-top:1.2rem">
+        <span>⚠️</span>
+        <span><strong>Penting:</strong> Pastikan nominal transfer sesuai dengan paket yang dipilih. Transfer berbeda nominal dapat menyebabkan keterlambatan proses verifikasi.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONI -->
+  <section class="testi-section" id="testi">
+    <div class="section-wrap">
+      <div style="text-align:center;margin-bottom:2rem">
+        <div class="chip">Testimoni</div>
+        <h2 class="section-title">Kata <span style="color:var(--blue)">Pelanggan Kami</span></h2>
+        <p class="section-sub">Ribuan perangkat sudah berhasil diaktifkan. Ini cerita mereka.</p>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Cuma 20 menit dari transfer sampai sinyal muncul. iPhone 14 Pro Max saya yang tadinya No Service sekarang bisa dipake normal. Sangat recommend!"</p>
+          <div class="testi-user">
+            <div class="testi-ava">A</div>
+            <div><div class="testi-name">Arif Santoso</div><div class="testi-detail">Surabaya · iPhone 14 Pro Max</div><span class="testi-tag">✓ Terverifikasi</span></div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Beli iPhone dari Korea, pas balik ke Indo langsung No Service. Coba layanan ini dan dalam 15 menit sudah dapat sinyal Telkomsel. Admin responsif banget!"</p>
+          <div class="testi-user">
+            <div class="testi-ava">R</div>
+            <div><div class="testi-name">Rina Kartika</div><div class="testi-detail">Jakarta · iPhone 13</div><span class="testi-tag">✓ Terverifikasi</span></div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Saya reseller HP, sudah langganan pakai layanan ini untuk stok iPhone inter. Proses cepat, tidak pernah gagal sejauh ini. Harga juga masuk akal untuk bisnis."</p>
+          <div class="testi-user">
+            <div class="testi-ava">D</div>
+            <div><div class="testi-name">Doni Pramana</div><div class="testi-detail">Bandung · Reseller HP</div><span class="testi-tag">✓ Pelanggan Tetap</span></div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★☆</div>
+          <p class="testi-quote">"Proses unlock berlangsung lancar. Sempat deg-degan karena baru pertama kali, tapi admin jelasin step by step dengan sabar. Hasilnya memuaskan!"</p>
+          <div class="testi-user">
+            <div class="testi-ava">F</div>
+            <div><div class="testi-name">Fitri Maharani</div><div class="testi-detail">Medan · iPhone 12</div><span class="testi-tag">✓ Terverifikasi</span></div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Awalnya skeptis karena banyak penipu online. Tapi ini beneran legit. Kirim data jam 9 pagi, jam 9:25 sinyal sudah aktif. Top markotop!"</p>
+          <div class="testi-user">
+            <div class="testi-ava">B</div>
+            <div><div class="testi-name">Budi Hartono</div><div class="testi-detail">Yogyakarta · iPhone 15</div><span class="testi-tag">✓ Terverifikasi</span></div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Yang bikin saya percaya, mereka tidak minta Apple ID sama sekali. Cuma screenshot IMEI. Aman 100%. Sekarang iPhone saya bisa pakai Indosat dengan normal."</p>
+          <div class="testi-user">
+            <div class="testi-ava">S</div>
+            <div><div class="testi-name">Siti Nurhayati</div><div class="testi-detail">Makassar · iPhone 13 Pro</div><span class="testi-tag">✓ Terverifikasi</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-wrap">
+      <div style="text-align:center;margin-bottom:2rem">
+        <div class="chip">FAQ</div>
+        <h2 class="section-title">Pertanyaan yang <span style="color:var(--blue)">Sering Ditanyakan</span></h2>
+        <p class="section-sub">Jawaban lengkap dan transparan untuk semua pertanyaan kamu.</p>
+      </div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">⏱️ Berapa lama proses unlock setelah pembayaran? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Rata-rata proses selesai dalam <strong>10–30 menit</strong> setelah pembayaran dikonfirmasi. Namun waktu bisa sedikit lebih lama (maksimal 1–2 jam) jika terjadi antrian server yang tinggi, terutama di jam sibuk. Kamu akan mendapat notifikasi langsung dari admin via WhatsApp begitu proses selesai.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">🔒 Apakah proses ini aman untuk iPhone saya? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Ya, <strong>100% aman</strong>. Proses dilakukan sepenuhnya via software dan server — hardware perangkat tidak tersentuh sama sekali. Kami <strong>tidak pernah meminta Apple ID, iCloud password, atau kode OTP</strong> kamu. Yang kami butuhkan hanya screenshot IMEI. Selama masa aktif, kamu bebas update iOS, restart HP, dan ganti SIM card tanpa khawatir sinyal hilang.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">📱 iPhone model apa saja yang bisa diproses? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Mayoritas iPhone inter (luar negeri) dari iPhone 7 hingga seri terbaru bisa diproses — termasuk iPhone 14, 15, dan 15 Pro. Namun hasil bisa berbeda tergantung <strong>kondisi dan riwayat IMEI</strong> perangkat (apakah pernah dilaporkan hilang/dicuri, blacklist, dll). Jika IMEI kamu tidak dapat diproses, dana dikembalikan 100%.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">❌ Apa yang terjadi jika proses gagal? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Jika IMEI tidak berhasil diaktifkan, admin akan memberitahu kamu langsung via WhatsApp beserta alasannya. <strong>Dana dikembalikan (refund) 100% tanpa potongan</strong> ke rekening / e-wallet yang sama dengan yang digunakan untuk pembayaran. Proses refund biasanya selesai dalam 1x24 jam kerja.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">📅 Bedanya paket 1 bulan dan 3 bulan apa? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Perbedaannya hanya di <strong>durasi masa aktif</strong>. Paket 1 bulan aktif selama 30 hari, cocok untuk pemakaian sementara atau ingin coba dulu. Paket 3 bulan aktif 90 hari penuh — lebih hemat secara total jika dibandingkan perpanjang paket 1 bulan sebanyak 3 kali. Kualitas dan kecepatan proses keduanya sama.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">⏳ Apa yang terjadi setelah masa aktif habis? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Setelah masa aktif berakhir, sinyal akan mati kembali seperti semula. Kamu cukup <strong>order perpanjangan</strong> dengan proses yang sama — kirim IMEI, bayar, tunggu 10–30 menit. Tidak perlu proses ulang dari nol. Admin akan menginformasikan jika masa aktif hampir habis.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">🌐 Ini layanan resmi pemerintah atau bukan? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Kami terbuka soal ini: <strong>ini bukan layanan resmi dari pemerintah atau Bea Cukai</strong>. Ini adalah solusi alternatif berbasis server yang banyak digunakan di Indonesia. Registrasi resmi hanya bisa dilakukan dalam 60 hari setelah HP masuk ke Indonesia — lewat batas itu, jalur resmi sudah tertutup. Layanan kami hadir sebagai solusi untuk kondisi tersebut.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">📲 Apakah Android juga bisa diproses? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Beberapa tipe Android bisa diproses, tergantung kondisi IMEI dan tipe device. Silakan <strong>konsultasikan terlebih dahulu</strong> ke admin kami via WhatsApp sebelum order, untuk memastikan perangkat kamu dapat diproses. Jika tidak bisa, kami akan informasikan tanpa perlu bayar dulu.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">🔄 Apakah aman jika update iOS setelah unlock? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a"><strong>Aman selama masa aktif berlaku.</strong> Update iOS, restart HP, ganti SIM ke provider berbeda — semuanya tidak mempengaruhi aktivasi. Sinyal tetap aktif seperti biasa. Yang perlu dilakukan hanya toggle Mode Pesawat On/Off jika sinyal tiba-tiba perlu di-refresh.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">💬 Bagaimana cara menghubungi admin jika ada masalah? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Kamu bisa hubungi admin langsung via <strong>WhatsApp</strong> yang tertera di website. Admin aktif setiap hari dan akan membalas secepat mungkin. Untuk masalah teknis pasca-unlock, sertakan Order ID kamu agar proses pengecekan lebih cepat.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">🏪 Apakah ada diskon untuk reseller / order banyak? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Ya, kami memiliki <strong>harga khusus untuk reseller</strong> dan pembelian dalam jumlah banyak (bulk order). Hubungi admin via WhatsApp untuk informasi lebih lanjut mengenai harga paket reseller dan ketentuan kerjasama.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAK -->
+  <section id="kontak" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="section-wrap">
+      <div style="text-align:center;margin-bottom:2rem">
+        <div class="chip">Kontak</div>
+        <h2 class="section-title">Hubungi <span style="color:var(--blue)">Kami</span></h2>
+        <p class="section-sub" style="margin:0 auto">Ada pertanyaan? Admin siap membantu setiap hari.</p>
+      </div>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap" class="reveal">
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/6285111333254" target="_blank" style="text-decoration:none;flex:1;min-width:240px;max-width:360px">
+          <div style="background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:1.8rem;display:flex;align-items:center;gap:1.1rem;transition:.2s;box-shadow:var(--shadow)"
+            onmouseover="this.style.borderColor='#25d366';this.style.transform='translateY(-3px)'"
+            onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+            <div style="width:52px;height:52px;border-radius:14px;background:#e9fdf2;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="28" height="28" fill="#25d366" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            </div>
+            <div>
+              <div style="font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem">WhatsApp</div>
+              <div style="font-size:1.05rem;font-weight:700;color:var(--ink)">085111333254</div>
+              <div style="font-size:.78rem;color:var(--muted);margin-top:.15rem">Chat langsung dengan admin</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://instagram.com/sinyalsakti" target="_blank" style="text-decoration:none;flex:1;min-width:240px;max-width:360px">
+          <div style="background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:1.8rem;display:flex;align-items:center;gap:1.1rem;transition:.2s;box-shadow:var(--shadow)"
+            onmouseover="this.style.borderColor='#E1306C';this.style.transform='translateY(-3px)'"
+            onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+            <div style="width:52px;height:52px;border-radius:14px;background:#fdf0f5;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="26" height="26" fill="#E1306C" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </div>
+            <div>
+              <div style="font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem">Instagram</div>
+              <div style="font-size:1.05rem;font-weight:700;color:var(--ink)">@sinyalsakti</div>
+              <div style="font-size:.78rem;color:var(--muted);margin-top:.15rem">Follow untuk info & promo</div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <section class="cta-bottom">
+    <h2>Aktifkan Sinyal<br>Sekarang Juga</h2>
+    <p>Proses cepat, aman, dan terpercaya. Sinyal aktif dalam 10–30 menit.</p>
+    <button class="btn-white" onclick="openOrderModal()">⚡ Order Sekarang</button>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="logo">Unlock<span>IMEI</span></div>
+      <p style="margin-top:.4rem">Jasa Unlock IMEI Signal Profesional &amp; Terpercaya</p>
+    </div>
+    <div style="display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap">
+      <a href="https://wa.me/6285111333254" target="_blank" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.82rem;display:flex;align-items:center;gap:.4rem;transition:.15s"
+        onmouseover="this.style.color='#25d366'" onmouseout="this.style.color='rgba(255,255,255,.7)'">
+        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        085111333254
+      </a>
+      <a href="https://instagram.com/sinyalsakti" target="_blank" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:.82rem;display:flex;align-items:center;gap:.4rem;transition:.15s"
+        onmouseover="this.style.color='#E1306C'" onmouseout="this.style.color='rgba(255,255,255,.7)'">
+        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @sinyalsakti
+      </a>
+    </div>
+    <p>© 2026 UnlockIMEI. Semua hak dilindungi.<br>Layanan hanya via saluran resmi ini.</p>
+  </footer>
+</div><!-- end landingPage -->
+
+<!-- ══════════════════════ STATUS PAGE ══════════════════════ -->
+<div id="statusPage">
+  <div class="status-wrap">
+    <button class="btn-back" onclick="goHome()">← Kembali ke Beranda</button>
+    <div class="chip">Status Order</div>
+    <h2 class="section-title" style="margin-bottom:1rem">Order <span style="color:var(--blue)">Berhasil Dibuat</span></h2>
+
+    <div id="statusBadge" class="status-badge waiting">
+      <span id="statusDot">⏳</span>
+      <span id="statusText">MENUNGGU PEMBAYARAN</span>
+    </div>
+
+    <div class="status-card">
+      <div class="status-header">
+        <div>
+          <h3>Order ID</h3>
+          <div class="order-id" id="displayOrderId">—</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:.8rem;opacity:.8">Tanggal</div>
+          <div style="font-weight:600;font-size:.9rem" id="displayDate">—</div>
+        </div>
+      </div>
+      <div class="status-body">
+        <div class="info-row"><span class="info-label">Nama</span><span class="info-val" id="displayNama">—</span></div>
+        <div class="info-row"><span class="info-label">WhatsApp</span><span class="info-val" id="displayWA">—</span></div>
+        <div class="info-row"><span class="info-label">IMEI</span><span class="info-val" id="displayIMEI" style="font-family:monospace;font-size:.85rem">—</span></div>
+        <div class="info-row"><span class="info-label">Paket</span><span class="info-val" id="displayPaket">—</span></div>
+        <div class="info-row"><span class="info-label">Total Bayar</span><span class="info-val" id="displayHarga" style="color:var(--blue)">—</span></div>
+        <div class="info-row"><span class="info-label">Status</span><span class="status-pill" id="displayStatus">Menunggu Pembayaran</span></div>
+      </div>
+    </div>
+
+    <!-- PILIH METODE BAYAR -->
+    <div class="payment-box">
+      <h4>💳 Pilih Metode Pembayaran</h4>
+
+      <!-- BRI -->
+      <div class="payment-option" onclick="selectPayment(this,'BRI',PAYMENT_INFO.BRI.no,PAYMENT_INFO.BRI.an)">
+        <div style="width:40px;height:40px;border-radius:8px;background:#00529B;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="28" height="16" viewBox="0 0 90 30"><text x="2" y="22" font-size="20" font-weight="900" fill="white" font-family="Arial">BRI</text></svg>
+        </div>
+        <div><div class="pay-name">Bank BRI</div><div class="pay-num" id="disp-BRI">—</div></div>
+        <button class="pay-copy-btn" onclick="event.stopPropagation();copyRek(this,PAYMENT_INFO.BRI.no)">📋 Copy</button>
+      </div>
+      <!-- BCA -->
+      <div class="payment-option" onclick="selectPayment(this,'BCA',PAYMENT_INFO.BCA.no,PAYMENT_INFO.BCA.an)">
+        <div style="width:40px;height:40px;border-radius:8px;background:#003087;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="32" height="16" viewBox="0 0 100 30"><text x="2" y="22" font-size="20" font-weight="900" fill="white" font-family="Arial">BCA</text></svg>
+        </div>
+        <div><div class="pay-name">Bank BCA</div><div class="pay-num" id="disp-BCA">—</div></div>
+        <button class="pay-copy-btn" onclick="event.stopPropagation();copyRek(this,PAYMENT_INFO.BCA.no)">📋 Copy</button>
+      </div>
+      <!-- Mandiri -->
+      <div class="payment-option" onclick="selectPayment(this,'Mandiri',PAYMENT_INFO.Mandiri.no,PAYMENT_INFO.Mandiri.an)">
+        <div style="width:40px;height:40px;border-radius:8px;background:#003F2D;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="36" height="16" viewBox="0 0 120 30"><text x="2" y="22" font-size="17" font-weight="900" fill="white" font-family="Arial">MDR</text></svg>
+        </div>
+        <div><div class="pay-name">Bank Mandiri</div><div class="pay-num" id="disp-Mandiri">—</div></div>
+        <button class="pay-copy-btn" onclick="event.stopPropagation();copyRek(this,PAYMENT_INFO.Mandiri.no)">📋 Copy</button>
+      </div>
+      <!-- Jago -->
+      <div class="payment-option" onclick="selectPayment(this,'Jago',PAYMENT_INFO.Jago.no,PAYMENT_INFO.Jago.an)">
+        <div style="width:40px;height:40px;border-radius:8px;background:#0A5EB0;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="36" height="16" viewBox="0 0 120 30"><text x="2" y="22" font-size="18" font-weight="900" fill="white" font-family="Arial">Jago</text></svg>
+        </div>
+        <div><div class="pay-name">Bank Jago</div><div class="pay-num" id="disp-Jago">—</div></div>
+        <button class="pay-copy-btn" onclick="event.stopPropagation();copyRek(this,PAYMENT_INFO.Jago.no)">📋 Copy</button>
+      </div>
+      <!-- ShopeePay -->
+      <div class="payment-option" onclick="selectPayment(this,'ShopeePay',PAYMENT_INFO.ShopeePay.no,PAYMENT_INFO.ShopeePay.an)">
+        <div style="width:40px;height:40px;border-radius:8px;background:#EE4D2D;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="38" height="16" viewBox="0 0 120 30"><text x="2" y="22" font-size="15" font-weight="900" fill="white" font-family="Arial">SPay</text></svg>
+        </div>
+        <div><div class="pay-name">ShopeePay</div><div class="pay-num" id="disp-ShopeePay">—</div></div>
+        <button class="pay-copy-btn" onclick="event.stopPropagation();copyRek(this,PAYMENT_INFO.ShopeePay.no)">📋 Copy</button>
+      </div>
+      <!-- DANA -->
+      <div class="payment-option" onclick="selectPayment(this,'DANA',PAYMENT_INFO.DANA.no,PAYMENT_INFO.DANA.an)">
+        <div style="width:40px;height:40px;border-radius:8px;background:#108FE9;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="38" height="16" viewBox="0 0 120 30"><text x="2" y="22" font-size="18" font-weight="900" fill="white" font-family="Arial">DANA</text></svg>
+        </div>
+        <div><div class="pay-name">DANA</div><div class="pay-num" id="disp-DANA">—</div></div>
+        <button class="pay-copy-btn" onclick="event.stopPropagation();copyRek(this,PAYMENT_INFO.DANA.no)">📋 Copy</button>
+      </div>
+
+      <!-- KOTAK REKENING TERPILIH -->
+      <div class="selected-rekening-box" id="selectedRekBox">
+        <div class="rek-box-label">✅ Transfer ke Rekening Ini</div>
+        <div class="rek-box-row">
+          <div>
+            <div class="rek-box-num" id="rekBoxNum">—</div>
+            <div class="rek-box-an" id="rekBoxAn">—</div>
+          </div>
+          <button class="btn-copy-big" id="btnCopyBig" onclick="copyRekBig()">
+            📋 Copy Nomor
+          </button>
+        </div>
+        <div class="rek-box-nominal">Nominal transfer: <strong id="rekBoxNominal">—</strong></div>
+      </div>
+
+      <div class="amount-due">
+        <div class="label">Nominal Transfer</div>
+        <div class="amount" id="amountDue">—</div>
+        <div style="font-size:.75rem;color:var(--muted);margin-top:.3rem">Transfer tepat nominal di atas</div>
+      </div>
+
+      <button class="btn-paid" onclick="goToConfirm()">✅ Sudah Bayar — Upload Bukti Transfer</button>
+    </div>
+
+    <p style="font-size:.78rem;color:var(--muted);text-align:center">Hubungi admin jika butuh bantuan · WhatsApp: <span id="waAdminDisplay">—</span></p>
+  </div>
+</div>
+
+<!-- ══════════════════════ KONFIRMASI BAYAR ══════════════════════ -->
+<div id="confirmPage">
+  <div class="confirm-wrap">
+    <button class="btn-back" onclick="goToStatus()">← Kembali ke Status Order</button>
+    <div class="chip">Konfirmasi Pembayaran</div>
+    <h2 class="section-title" style="margin-bottom:1rem">Upload <span style="color:var(--blue)">Bukti Transfer</span></h2>
+
+    <div class="confirm-steps">
+      <div class="confirm-step done"><div class="cs-dot">✓</div> Form order terisi</div>
+      <div class="confirm-step done"><div class="cs-dot">✓</div> Metode pembayaran dipilih</div>
+      <div class="confirm-step"><div class="cs-dot">3</div> Upload bukti transfer</div>
+      <div class="confirm-step"><div class="cs-dot">4</div> Menunggu verifikasi admin</div>
+    </div>
+
+    <div class="confirm-card">
+      <h4 style="margin-bottom:1rem">📎 Upload Bukti Pembayaran</h4>
+      <div class="fgroup">
+        <label>Order ID</label>
+        <input type="text" id="confirmOrderId" readonly style="background:var(--bg);color:var(--muted)">
+      </div>
+      <div class="fgroup">
+        <label>Metode Pembayaran Dipilih</label>
+        <input type="text" id="confirmMethod" readonly style="background:var(--bg);color:var(--muted)">
+      </div>
+      <div class="fgroup">
+        <label>Nominal Transfer</label>
+        <input type="text" id="confirmAmount" readonly style="background:var(--bg);color:var(--blue);font-weight:700">
+      </div>
+      <div class="fgroup">
+        <label>Screenshot / Foto Bukti Transfer *</label>
+        <div class="upload-zone" id="proofUpload" onclick="document.getElementById('proofFile').click()">
+          <input type="file" id="proofFile" accept="image/*" onchange="handleProof(this)">
+          <div class="upload-icon">📤</div>
+          <p>Klik untuk upload bukti transfer</p>
+          <p style="font-size:.72rem;margin-top:.2rem">JPG, PNG, max 5MB</p>
+        </div>
+      </div>
+      <button class="btn-confirm" onclick="submitConfirm()">✅ Kirim Konfirmasi Pembayaran</button>
+      <p class="form-note" style="margin-top:.8rem">Admin akan memverifikasi dalam beberapa menit</p>
+    </div>
+
+    <div id="doneBox" class="done-box" style="display:none">
+      <div class="done-icon">🎉</div>
+      <h3>Konfirmasi Terkirim!</h3>
+      <p>Bukti transfer kamu sudah kami terima. Admin sedang memverifikasi pembayaran dan akan segera memproses unlock IMEI kamu. Estimasi selesai: <strong>10–30 menit</strong>.</p>
+      <p style="margin-top:.8rem">Notifikasi akan dikirim ke WhatsApp kamu.</p>
+      <button class="btn-blue" style="margin-top:1.5rem;width:100%;justify-content:center" onclick="goHome()">Kembali ke Beranda</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ ORDER MODAL ══════════════════════ -->
+<div class="overlay" id="orderOverlay" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-chip">Form Order</div>
+    <h2>Order Unlock IMEI</h2>
+    <p class="sub">Isi data di bawah dengan benar. Semua field wajib diisi kecuali yang opsional.</p>
+
+    <!-- Plan selector -->
+    <div class="plan-selector">
+      <div class="plan-opt" id="opt1bulan" onclick="selectPlan('1bulan')">
+        <h4>📅 1 Bulan</h4>
+        <div class="plan-price" id="price1">Rp 140.000</div>
+        <div class="plan-dur">Aktif 30 hari</div>
+      </div>
+      <div class="plan-opt selected" id="opt3bulan" onclick="selectPlan('3bulan')">
+        <h4>📅 3 Bulan ⭐</h4>
+        <div class="plan-price" id="price3">Rp 180.000</div>
+        <div class="plan-dur">Aktif 90 hari · Lebih Hemat</div>
+      </div>
+    </div>
+
+    <div class="plan-selected-bar">
+      <span id="modalPlanLabel">Paket 3 Bulan</span>
+      <span class="price" id="modalPlanPrice">Rp 180.000</span>
+    </div>
+
+    <div class="fgroup">
+      <label>Nama Lengkap *</label>
+      <input type="text" id="mNama" placeholder="Contoh: Budi Santoso">
+    </div>
+    <div class="fgroup">
+      <label>Nomor WhatsApp *</label>
+      <input type="tel" id="mWA" placeholder="Contoh: 08123456789">
+      <p class="hint">Admin menghubungi ke nomor ini setelah order masuk.</p>
+    </div>
+    <div class="fgroup">
+      <label>Nomor IMEI *</label>
+      <input type="text" id="mIMEI" placeholder="Contoh: 356938035643809" class="imei-code">
+      <p class="hint">Buka Telepon → ketik *#06# → catat nomor IMEI yang muncul.</p>
+    </div>
+    <div class="fgroup">
+      <label>Upload Screenshot IMEI *</label>
+      <div class="upload-zone" id="imeiUpload" onclick="document.getElementById('imeiFile').click()">
+        <input type="file" id="imeiFile" accept="image/*" onchange="handleIMEIUpload(this)">
+        <div class="upload-icon">📷</div>
+        <p>Klik untuk upload screenshot IMEI</p>
+        <p style="font-size:.72rem;margin-top:.2rem">JPG, PNG, max 5MB</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section-divider">Data Rekening Pengirim</div>
+
+    <div class="fgroup">
+      <label>Nama Pemilik Rekening *</label>
+      <input type="text" id="mNamaRek" placeholder="Sesuai nama rekening / e-wallet">
+    </div>
+    <div class="fgroup">
+      <label>Nomor Rekening / E-Wallet *</label>
+      <input type="text" id="mNoRek" placeholder="Contoh: 1234567890">
+      <p class="hint">Digunakan untuk proses refund jika diperlukan.</p>
+    </div>
+
+    <button class="btn-submit" id="btnSubmit" onclick="submitOrder()">
+      ⚡ Buat Order Sekarang
+    </button>
+    <p class="form-note">Setelah submit, kamu akan diarahkan ke halaman pembayaran. Admin akan menghubungi via WhatsApp.</p>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════
+// ⚙️  KONFIGURASI — Ganti sesuai milikmu
+// ════════════════════════════════════════════════
+
+// ── TELEGRAM BOT ──
+// Cara buat bot: chat @BotFather di Telegram → /newbot → copy token
+// Cara ambil Chat ID: chat @userinfobot → copy angka Id
+const TG_BOT_TOKEN = '8729766373:AAE3D8IZCYxzX6iaeBFafcv_VRMm7JhuxL8';
+const TG_CHAT_ID   = '1243744556';
+
+// ── GOOGLE SHEETS (tetap aktif, opsional) ──
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbzzNhY7jdB_Vk8Wy80xr0L44xc2odeYfVycIBYQmcwpkmdxEvbZY1acWP6Vp37EookUfw/exec';
+
+// Nomor WhatsApp Admin (format internasional tanpa +)
+const WA_ADMIN = '6285111333254';
+
+// Info rekening / e-wallet (no = nomor, an = atas nama)
+const PAYMENT_INFO = {
+  BRI:       { no: '614901016870536', an: 'Fabio Tuta Gamarra' },
+  BCA:       { no: '0902506088',   an: 'Fabio Tuta Gamarra' },
+  Mandiri:   { no: '1710019067282',   an: 'Fabio Tuta Gamarra' },
+  Jago:      { no: '101369343127',   an: 'Fabio Tuta Gamarra' },
+  ShopeePay: { no: '081553593254',  an: 'Fabio Tuta Gamarra' },
+  DANA:      { no: '081553593254',  an: 'Fabio Tuta Gamarra' },
+};
+
+// Harga paket
+const PRICES = { '1bulan': 140000, '3bulan': 180000 };
+const LABELS = { '1bulan': 'Paket 1 Bulan (30 Hari)', '3bulan': 'Paket 3 Bulan (90 Hari)' };
+
+// ════════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════════
+let currentPlan = '3bulan';
+let orderData = {};
+let selectedPayment = null;
+let selectedPaymentDetail = {};
+
+// ── INIT ──
+(function init(){
+  // Tampilkan nomor WA admin
+  document.getElementById('waAdminDisplay').textContent = formatWADisplay(WA_ADMIN);
+  // Isi semua nomor rekening di payment options
+  Object.keys(PAYMENT_INFO).forEach(key => {
+    const el = document.getElementById('disp-' + key);
+    if(el) el.textContent = PAYMENT_INFO[key].no + ' · a/n ' + PAYMENT_INFO[key].an;
+  });
+})();
+
+// ── HELPERS ──
+function fmt(n){ return 'Rp ' + n.toLocaleString('id-ID'); }
+function generateOrderId(){
+  return 'UID-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).substr(2,4).toUpperCase();
+}
+function formatWADisplay(wa){
+  return wa.replace(/(\d{2})(\d{4})(\d{4})(\d+)/, '+$1 $2-$3-$4');
+}
+
+// Konversi file ke base64
+function fileToBase64(file){
+  return new Promise((res,rej)=>{
+    if(!file){ res(''); return; }
+    const r = new FileReader();
+    r.onload = ()=> res(r.result);
+    r.onerror = ()=> res('');
+    r.readAsDataURL(file);
+  });
+}
+
+// ── NAV ──
+function toggleNav(){ document.getElementById('navbar').classList.toggle('open'); }
+function closeNav(){ document.getElementById('navbar').classList.remove('open'); }
+
+// ── PAGES ──
+function goHome(){
+  document.getElementById('landingPage').classList.add('active');
+  document.getElementById('statusPage').style.display='none';
+  document.getElementById('confirmPage').style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showStatus(){
+  document.getElementById('landingPage').classList.remove('active');
+  document.getElementById('statusPage').style.display='block';
+  document.getElementById('confirmPage').style.display='none';
+  window.scrollTo({top:0});
+}
+function goToStatus(){
+  document.getElementById('confirmPage').style.display='none';
+  document.getElementById('statusPage').style.display='block';
+  window.scrollTo({top:0});
+}
+function goToConfirm(){
+  if(!selectedPayment){ alert('Pilih metode pembayaran terlebih dahulu.'); return; }
+  document.getElementById('statusPage').style.display='none';
+  document.getElementById('confirmPage').style.display='block';
+  document.getElementById('confirmOrderId').value = orderData.orderId || '';
+  document.getElementById('confirmMethod').value = selectedPayment || '';
+  document.getElementById('confirmAmount').value = fmt(PRICES[currentPlan]);
+  window.scrollTo({top:0});
+}
+
+// ── MODAL ──
+function openOrderModal(plan){
+  if(plan) selectPlan(plan);
+  document.getElementById('orderOverlay').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('orderOverlay').classList.remove('active');
+  document.body.style.overflow='';
+}
+function closeModalOutside(e){
+  if(e.target===document.getElementById('orderOverlay')) closeModal();
+}
+
+// ── PLAN ──
+function selectPlan(p){
+  currentPlan = p;
+  document.getElementById('opt1bulan').classList.toggle('selected', p==='1bulan');
+  document.getElementById('opt3bulan').classList.toggle('selected', p==='3bulan');
+  document.getElementById('modalPlanLabel').textContent = LABELS[p];
+  document.getElementById('modalPlanPrice').textContent = fmt(PRICES[p]);
+}
+
+// ── UPLOAD PREVIEW ──
+function handleIMEIUpload(inp){
+  const zone = document.getElementById('imeiUpload');
+  if(inp.files[0]){
+    zone.classList.add('has-file');
+    zone.querySelector('p').textContent = '✓ ' + inp.files[0].name;
+  }
+}
+function handleProof(inp){
+  const zone = document.getElementById('proofUpload');
+  if(inp.files[0]){
+    zone.classList.add('has-file');
+    zone.querySelector('p').textContent = '✓ ' + inp.files[0].name;
+  }
+}
+
+// ── PAYMENT SELECT ──
+function selectPayment(el, name, no, an){
+  document.querySelectorAll('.payment-option').forEach(x=>x.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedPayment = name + ' · ' + no;
+  selectedPaymentDetail = { name, no, an };
+
+  // Tampilkan kotak rekening terpilih
+  const box = document.getElementById('selectedRekBox');
+  document.getElementById('rekBoxNum').textContent = no;
+  document.getElementById('rekBoxAn').textContent = 'a/n ' + an;
+  document.getElementById('rekBoxNominal').textContent = fmt(PRICES[currentPlan]);
+  document.getElementById('btnCopyBig').textContent = '📋 Copy Nomor';
+  document.getElementById('btnCopyBig').classList.remove('copied');
+  box.classList.add('show');
+  // scroll ke kotak agar terlihat di mobile
+  setTimeout(()=> box.scrollIntoView({behavior:'smooth', block:'nearest'}), 100);
+}
+
+// ── COPY HELPERS ──
+function copyRek(btn, no){
+  navigator.clipboard.writeText(no).then(()=>{
+    btn.textContent = '✓ Tersalin!';
+    btn.classList.add('copied');
+    setTimeout(()=>{ btn.textContent='📋 Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function copyRekBig(){
+  const no = selectedPaymentDetail.no || '';
+  if(!no) return;
+  const btn = document.getElementById('btnCopyBig');
+  navigator.clipboard.writeText(no).then(()=>{
+    btn.textContent = '✓ Tersalin!';
+    btn.classList.add('copied');
+    setTimeout(()=>{ btn.textContent='📋 Copy Nomor'; btn.classList.remove('copied'); }, 2500);
+  });
+}
+
+// ════════════════════════════════════════════════
+// HELPER TELEGRAM
+// ════════════════════════════════════════════════
+const TG_BASE = () => `https://api.telegram.org/bot${TG_BOT_TOKEN}`;
+
+async function tgSendMessage(text){
+  if(!TG_BOT_TOKEN || TG_BOT_TOKEN === 'GANTI_BOT_TOKEN_KAMU') return;
+  await fetch(`${TG_BASE()}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id: TG_CHAT_ID, text, parse_mode: 'HTML' })
+  });
+}
+
+async function tgSendPhoto(file, caption){
+  if(!TG_BOT_TOKEN || TG_BOT_TOKEN === 'GANTI_BOT_TOKEN_KAMU') return;
+  const fd = new FormData();
+  fd.append('chat_id', TG_CHAT_ID);
+  fd.append('photo', file);
+  fd.append('caption', caption);
+  fd.append('parse_mode', 'HTML');
+  await fetch(`${TG_BASE()}/sendPhoto`, { method: 'POST', body: fd });
+}
+
+// ════════════════════════════════════════════════
+// SUBMIT ORDER → TELEGRAM + GOOGLE SHEETS
+// ════════════════════════════════════════════════
+async function submitOrder(){
+  const nama    = document.getElementById('mNama').value.trim();
+  const wa      = document.getElementById('mWA').value.trim();
+  const imei    = document.getElementById('mIMEI').value.trim();
+  const namaRek = document.getElementById('mNamaRek').value.trim();
+  const noRek   = document.getElementById('mNoRek').value.trim();
+  const imeiFile = document.getElementById('imeiFile').files[0];
+
+  if(!nama)     { alert('Nama lengkap wajib diisi.'); return; }
+  if(!wa)       { alert('Nomor WhatsApp wajib diisi.'); return; }
+  if(!imei)     { alert('Nomor IMEI wajib diisi.'); return; }
+  if(!imeiFile) { alert('Screenshot IMEI wajib diupload.'); return; }
+  if(!namaRek)  { alert('Nama pemilik rekening wajib diisi.'); return; }
+  if(!noRek)    { alert('Nomor rekening / e-wallet wajib diisi.'); return; }
+
+  const btn = document.getElementById('btnSubmit');
+  btn.disabled = true;
+  btn.innerHTML = '⏳ Mengirim data...';
+
+  const orderId = generateOrderId();
+  const date = new Date().toLocaleDateString('id-ID',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+  const imeiBase64 = await fileToBase64(imeiFile);
+
+  // ── Kirim ke TELEGRAM ──
+  try {
+    const pesanTG =
+`🚀 <b>ORDER BARU MASUK!</b>
+━━━━━━━━━━━━━━━━━━━━
+🔖 <b>Order ID:</b> <code>${orderId}</code>
+📅 <b>Tanggal:</b> ${date}
+━━━━━━━━━━━━━━━━━━━━
+👤 <b>Nama:</b> ${nama}
+📱 <b>WhatsApp:</b> <a href="https://wa.me/${wa.replace(/^0/,'62')}">+${wa.replace(/^0/,'62')}</a>
+📲 <b>IMEI:</b> <code>${imei}</code>
+━━━━━━━━━━━━━━━━━━━━
+📦 <b>Paket:</b> ${LABELS[currentPlan]}
+💰 <b>Harga:</b> ${fmt(PRICES[currentPlan])}
+━━━━━━━━━━━━━━━━━━━━
+🏦 <b>Rekening Pengirim:</b>
+   Nama: ${namaRek}
+   No: <code>${noRek}</code>
+━━━━━━━━━━━━━━━━━━━━
+⏳ <b>Status:</b> MENUNGGU PEMBAYARAN`;
+
+    // Kirim teks + foto IMEI sekaligus
+    await tgSendPhoto(imeiFile,
+      `📷 Screenshot IMEI\n🔖 Order: ${orderId}\n👤 ${nama} | 📦 ${LABELS[currentPlan]}`
+    );
+    await tgSendMessage(pesanTG);
+  } catch(e){
+    console.warn('Telegram gagal:', e);
+  }
+
+  // ── Kirim ke GOOGLE SHEETS (tetap) ──
+  try {
+    if(GAS_URL){
+      await fetch(GAS_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({
+          action:'submitOrder', orderId, nama, wa, imei,
+          paket:LABELS[currentPlan], harga:PRICES[currentPlan],
+          namaRek, noRek, tanggal:date, status:'NEW',
+          imeiScreenshot: imeiBase64
+        }),
+        mode: 'no-cors'
+      });
+    }
+  } catch(e){ console.warn('GAS error:', e); }
+
+  // Simpan state & tampilkan halaman status
+  orderData = { orderId, nama, wa, imei, namaRek, noRek, plan: currentPlan, harga: PRICES[currentPlan], date };
+  document.getElementById('displayOrderId').textContent = orderId;
+  document.getElementById('displayDate').textContent = date;
+  document.getElementById('displayNama').textContent = nama;
+  document.getElementById('displayWA').textContent = wa;
+  document.getElementById('displayIMEI').textContent = imei;
+  document.getElementById('displayPaket').textContent = LABELS[currentPlan];
+  document.getElementById('displayHarga').textContent = fmt(PRICES[currentPlan]);
+  document.getElementById('amountDue').textContent = fmt(PRICES[currentPlan]);
+
+  closeModal();
+  btn.disabled = false;
+  btn.innerHTML = '⚡ Buat Order Sekarang';
+  showStatus();
+}
+
+// ════════════════════════════════════════════════
+// SUBMIT BUKTI PEMBAYARAN → TELEGRAM + GOOGLE SHEETS
+// ════════════════════════════════════════════════
+async function submitConfirm(){
+  const proofFile = document.getElementById('proofFile').files[0];
+  if(!proofFile){ alert('Upload bukti transfer terlebih dahulu.'); return; }
+
+  const btn = document.querySelector('.btn-confirm');
+  btn.disabled = true;
+  btn.textContent = '⏳ Mengirim bukti...';
+
+  const tglKonfirm = new Date().toLocaleDateString('id-ID',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+
+  // ── Kirim ke TELEGRAM ──
+  try {
+    const caption =
+`✅ <b>BUKTI BAYAR DITERIMA!</b>
+━━━━━━━━━━━━━━━━━━━━
+🔖 <b>Order ID:</b> <code>${orderData.orderId || '-'}</code>
+📅 <b>Konfirmasi:</b> ${tglKonfirm}
+━━━━━━━━━━━━━━━━━━━━
+👤 <b>Nama:</b> ${orderData.nama || '-'}
+📱 <b>WhatsApp:</b> ${orderData.wa || '-'}
+📲 <b>IMEI:</b> <code>${orderData.imei || '-'}</code>
+━━━━━━━━━━━━━━━━━━━━
+💳 <b>Metode Bayar:</b> ${selectedPayment || '-'}
+💰 <b>Nominal:</b> ${fmt(orderData.harga || 0)}
+━━━━━━━━━━━━━━━━━━━━
+🟡 <b>Status:</b> MENUNGGU VERIFIKASI`;
+
+    await tgSendPhoto(proofFile, caption);
+    await tgSendMessage(`⚡ <b>ACTION DIPERLUKAN</b>\nVerifikasi pembayaran order <code>${orderData.orderId}</code> dari <b>${orderData.nama}</b>.\nHubungi customer: <a href="https://wa.me/${(orderData.wa||'').replace(/^0/,'62')}">WhatsApp</a>`);
+  } catch(e){
+    console.warn('Telegram bukti gagal:', e);
+  }
+
+  // ── Kirim ke GOOGLE SHEETS (tetap) ──
+  try {
+    if(GAS_URL){
+      const proofBase64 = await fileToBase64(proofFile);
+      await fetch(GAS_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({
+          action:'submitBukti',
+          orderId: orderData.orderId,
+          metodePembayaran: selectedPayment,
+          noRekTujuan: selectedPaymentDetail.no || '',
+          anRekTujuan: selectedPaymentDetail.an || '',
+          nominalTransfer: fmt(orderData.harga),
+          tanggalKonfirmasi: tglKonfirm,
+          buktiBayar: proofBase64,
+          status: 'PROCESS',
+        }),
+        mode: 'no-cors'
+      });
+    }
+  } catch(e){ console.warn('GAS bukti error:', e); }
+
+  btn.disabled = false;
+  btn.textContent = '✅ Kirim Konfirmasi Pembayaran';
+  document.querySelector('.confirm-card').style.display='none';
+  document.getElementById('doneBox').style.display='block';
+  document.querySelectorAll('.confirm-step').forEach((s,i)=>{ if(i<=2) s.classList.add('done'); });
+}
+
+// ── FAQ ──
+function toggleFaq(btn){
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+
+// ── SCROLL REVEAL ──
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+
+<!-- ════════════════════════════════════════════
+  📋 KODE GOOGLE APPS SCRIPT (GAS)
+  
+  1. Buka https://script.google.com
+  2. Buat project baru
+  3. Paste seluruh kode di bawah ini (copy dari komentar ini)
+  4. Ganti SPREADSHEET_ID dengan ID Google Sheet kamu
+  5. Deploy → New Deployment → Web App
+     - Execute as: Me
+     - Who has access: Anyone
+  6. Copy URL deployment → paste ke variabel GAS_URL di atas
+
+  ─────────────────────────────────────────────
+  function doPost(e) {
+    try {
+      var data = JSON.parse(e.postData.contents);
+      var ss = SpreadsheetApp.openById('1mIoA6XeUrIo5oGV3LwPxKk29ftILKl6V1FSWesin2_Y');
+      
+      if (data.action === 'submitOrder') {
+        var sheet = ss.getSheetByName('Orders') || ss.insertSheet('Orders');
+        if (sheet.getLastRow() === 0) {
+          sheet.appendRow(['Order ID','Tanggal','Nama','WhatsApp','IMEI','Paket','Harga','Nama Rekening','No Rekening','Status','Screenshot IMEI']);
+        }
+        sheet.appendRow([
+          data.orderId, data.tanggal, data.nama, data.wa, data.imei,
+          data.paket, data.harga, data.namaRek, data.noRek, data.status,
+          data.imeiScreenshot ? 'Ada (base64)' : '-'
+        ]);
+      }
+      
+      if (data.action === 'submitBukti') {
+        var sheet2 = ss.getSheetByName('Bukti Bayar') || ss.insertSheet('Bukti Bayar');
+        if (sheet2.getLastRow() === 0) {
+          sheet2.appendRow(['Order ID','Tanggal Konfirmasi','Metode Bayar','No Rek Tujuan','A/N Tujuan','Nominal','Status','Bukti Transfer']);
+        }
+        sheet2.appendRow([
+          data.orderId, data.tanggalKonfirmasi, data.metodePembayaran,
+          data.noRekTujuan, data.anRekTujuan, data.nominalTransfer,
+          data.status, data.buktiBayar ? 'Ada (base64)' : '-'
+        ]);
+        // Update status di sheet Orders
+        var ordersSheet = ss.getSheetByName('Orders');
+        if (ordersSheet) {
+          var vals = ordersSheet.getDataRange().getValues();
+          for (var i = 1; i < vals.length; i++) {
+            if (vals[i][0] === data.orderId) {
+              ordersSheet.getRange(i+1, 10).setValue('PROCESS');
+              break;
+            }
+          }
+        }
+      }
+      
+      return ContentService.createTextOutput(JSON.stringify({status:'ok'}))
+        .setMimeType(ContentService.MimeType.JSON);
+    } catch(err) {
+      return ContentService.createTextOutput(JSON.stringify({status:'error', msg: err.toString()}))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+  }
+  ─────────────────────────────────────────────
+════════════════════════════════════════════ -->
+</body>
+</html>
